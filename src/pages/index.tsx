@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Signup from 'src/components/Signup'
-import Signin from 'src/components/Signin'
 
 const Home: NextPage = () => {
   return (
@@ -12,8 +11,6 @@ const Home: NextPage = () => {
       </div>
 
       <Signup />
-
-      <Signin />
 
     </div>
   )

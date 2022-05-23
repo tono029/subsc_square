@@ -1,6 +1,8 @@
 import React from "react";
 import { InputLabel, Button, TextField } from "@mui/material";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import MuiLink from "@mui/material/Link"
 
 import app from "src/firebase/firebase";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth"
@@ -50,6 +52,10 @@ export default function Signup() {
         >
           登録
         </Button>
+
+        <Link href="/login">
+          <MuiLink>ログインする</MuiLink>
+        </Link>
         
       </form>
     </div>

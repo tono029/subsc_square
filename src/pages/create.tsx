@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import { AuthContext } from "src/firebase/AuthProvider";
 import { InputLabel, TextField, Button } from "@mui/material";
 import Link from "next/link";
+import MuiLink from "@mui/material/Link"
 
 export default function Create() {
   const {currentUser} = useContext(AuthContext)
@@ -35,7 +36,11 @@ export default function Create() {
         
         :
 
-        <p>投稿するには<Link href="/">ログイン</Link>してください</p>
+        <p className="no-login-text">投稿するには
+          <Link href="/login">
+            <MuiLink>ログイン</MuiLink>
+          </Link>してください
+        </p>
       }
     </div>
   )
