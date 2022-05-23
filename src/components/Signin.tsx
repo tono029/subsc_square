@@ -19,11 +19,14 @@ export default function Signin() {
 
   return (
     <div className="container sign-form">
+      <h2>ログイン</h2>
+      
       <form onSubmit={handleSubmit}>
         <InputLabel>メールアドレス</InputLabel>
         <TextField 
           name="email"
           type="email"
+          size="small"
           onChange={e => setEmail(e.target.value)}
         />
   
@@ -31,6 +34,7 @@ export default function Signin() {
         <TextField 
           name="password"
           type="password"
+          size="small"
           onChange={e => setPassword(e.target.value)}
         />
   

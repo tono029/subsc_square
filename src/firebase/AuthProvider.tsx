@@ -16,6 +16,7 @@ const AuthProvider = ({ children }: {children: JSX.Element}) => {
     auth.onAuthStateChanged((user) => {
       setCurrentUser(user)
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
