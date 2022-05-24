@@ -11,7 +11,7 @@ const GeneralProvider = ({ children }: {children: JSX.Element}) => {
   const [flash, setFlash] = React.useState<FlashType>({
     mess: "",
     open: false,
-    type: ""
+    type: "success"
   })
 
   return (

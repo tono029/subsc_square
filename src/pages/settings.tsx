@@ -4,15 +4,18 @@ import { getAuth, signOut } from "firebase/auth";
 import { useRouter } from "next/router";
 import { Button } from "@mui/material";
 import { AuthContext } from "src/firebase/AuthProvider";
+import { GeneralContext } from "src/components/StateContext";
 
 export default function Settings() {
   const auth = getAuth(app)
   const router = useRouter()
   const {currentUser} = useContext(AuthContext)
+  const {setFlash} = useContext(GeneralContext)
 
   const handleLogout = async () => {
     await signOut(auth)
-    await router.push("/")
+    setFlash({open: true, mess: "ログアウトしました", type: "success"})
+    router.push("/")
   }
 
   return (

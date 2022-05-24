@@ -5,22 +5,29 @@ import { GeneralContext } from "./StateContext";
 export default function Flash() {
   const {flash, setFlash} = useContext(GeneralContext)
 
+  const closeFlash = (prev: FlashType): FlashType => {
+    return {
+      mess: prev.mess,
+      open: false,
+      type: prev.type
+    }
+  }
+
   const handleClose = () => {
-    setFlash({open: false})
+    setFlash(prev => closeFlash(prev))
   }
 
   return (
     <Snackbar
       open={flash.open}
-      autoHideDuration={4000}
+      autoHideDuration={3500}
       onClose={handleClose}
       anchorOrigin={{vertical: "top", horizontal: "center" }}
     >
       <Alert
-        severity="info"
-        onClose={handleClose}
+        severity={flash.type}
       >
-        {flash.mess}sadfsfd
+        {flash.mess}
       </Alert>
     </Snackbar>
   )

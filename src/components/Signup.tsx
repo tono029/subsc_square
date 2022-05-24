@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { InputLabel, Button, TextField } from "@mui/material";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -6,10 +6,11 @@ import MuiLink from "@mui/material/Link"
 
 import app from "src/firebase/firebase";
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth"
+import { GeneralContext } from "./StateContext";
 
 export default function Signup() {
-  const router = useRouter()
   const auth = getAuth(app)
+  const {setFlash} = useContext(GeneralContext)
 
   const [email, setEmail] = React.useState("")
   const [password, setPassword] = React.useState("")
@@ -19,9 +20,9 @@ export default function Signup() {
     try {
       await createUserWithEmailAndPassword(auth, email, password)
       await sendEmailVerification(auth.currentUser)
-      alert("確認メールが送信されました")
+      setFlash({open: true, mess: "確認メールが送信されました", type: "success"})
     } catch (e) {
-      alert(e)
+      setFlash({open: true, mess: "エラーが発生しました。", type: "error"})
     }
   }
   
@@ -52,12 +53,11 @@ export default function Signup() {
         >
           登録
         </Button>
-
-        <Link href="/login">
-          <MuiLink>ログインする</MuiLink>
-        </Link>
-        
       </form>
+
+      <Link href="/login">
+        <MuiLink>ログインする</MuiLink>
+      </Link>
     </div>
   )
 }

@@ -99,6 +99,7 @@ header {
   h2 {
     margin: 0;
   }
+
   form {
     display: flex;
     flex-direction: column;
@@ -111,7 +112,9 @@ header {
   label, button, a {
     margin-top: 20px;
   }
+
   a {
+    display: block;
     text-align: end;
   }
 }
