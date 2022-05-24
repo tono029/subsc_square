@@ -16,7 +16,7 @@ export default function Settings() {
   }
 
   return (
-    <div className="container">
+    <div className="container setting">
       <h2>settings</h2>
 
       <div className="setting-items">

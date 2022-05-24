@@ -1,7 +1,8 @@
 import { useRouter } from "next/router"
-import { Button } from "@mui/material"
+import { Button, IconButton } from "@mui/material"
 import React, { useContext } from "react"
 import { AuthContext } from "src/firebase/AuthProvider"
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 export default function Header() {
   const router = useRouter()
