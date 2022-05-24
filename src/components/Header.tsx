@@ -1,8 +1,9 @@
 import { useRouter } from "next/router"
-import { Button, IconButton } from "@mui/material"
+import { Button } from "@mui/material"
 import React, { useContext } from "react"
 import { AuthContext } from "src/firebase/AuthProvider"
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import TemporaryDrawer from "./Drawer";
 
 export default function Header() {
   const router = useRouter()
@@ -56,6 +57,8 @@ export default function Header() {
             投稿する
           </Button>
         </div>
+
+        <TemporaryDrawer />
 
 
       </div>

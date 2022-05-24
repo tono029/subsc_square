@@ -89,6 +89,11 @@ header {
 }
 
 // index.tsx-----------------------------------------------
+.home-text {
+  h2 {
+    text-align: center;
+  }
+}
 
 
 
@@ -144,6 +149,12 @@ header {
   form {
     display: flex;
     flex-direction: column;
+  }
+  label, button {
+    margin-top: 20px;
+  }
+  label {
+    margin-left: 10px;
   }
 }
 

@@ -14,6 +14,8 @@ const GeneralProvider = ({ children }: {children: JSX.Element}) => {
     type: "success"
   })
 
+
+  
   return (
     <GeneralContext.Provider value={{
       flash, 

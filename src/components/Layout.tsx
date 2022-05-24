@@ -29,7 +29,7 @@ export const Layout = ({children}: {children: JSX.Element}) => {
 
       <div className="contents">
         <Header />
-  
+
         <main>
           {children}
         </main>
