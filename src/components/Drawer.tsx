@@ -1,38 +1,66 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-
+import ListIcon from '@mui/icons-material/List';
+import { IconButton } from '@mui/material';
+import { useRouter } from 'next/router';
 
 
 export default function TemporaryDrawer() {
   const [drawerOpen, setDrawerOpen] = React.useState(false)
+  const router = useRouter()
+
+  const handleListClick = (path: string) => {
+    router.push(path)
+    setDrawerOpen(false)
+  }
 
   const list = (
     <List>
-      {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-        <ListItem key={text} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              {index % 2 === 0}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItemButton>
-        </ListItem>
-      ))}
+      
+      <ListItem disablePadding>
+        <ListItemButton onClick={() => handleListClick("/posts")}>
+          <ListItemIcon>
+            
+          </ListItemIcon>
+          <ListItemText>投稿一覧</ListItemText>
+        </ListItemButton>
+      </ListItem>
+      
+      <ListItem disablePadding>
+        <ListItemButton onClick={() => handleListClick("/create")}>
+          <ListItemIcon>
+            
+          </ListItemIcon>
+          <ListItemText>投稿する</ListItemText>
+        </ListItemButton>
+      </ListItem>
+      
+      <ListItem disablePadding>
+        <ListItemButton onClick={() => handleListClick("/settings")}>
+          <ListItemIcon>
+            
+          </ListItemIcon>
+          <ListItemText>ユーザー設定</ListItemText>
+        </ListItemButton>
+      </ListItem>
+
     </List>
   )
     
   return (
     <>
-      <Button onClick={() => setDrawerOpen(true)}>
-        Drawer
-      </Button>
+      <IconButton
+        onClick={() => setDrawerOpen(true)}
+      >
+        <ListIcon fontSize='large' />
+      </IconButton>
+        
 
       <Drawer
         anchor={"right"}

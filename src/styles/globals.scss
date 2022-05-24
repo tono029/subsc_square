@@ -114,13 +114,13 @@ header {
     color: white;
   }
 
-  label, button, a {
+  label, button {
     margin-top: 20px;
   }
 
-  a {
-    display: block;
-    text-align: end;
+  .to-login {
+    text-align: right;
+    margin-top: 20px;
   }
 }
 
@@ -160,4 +160,9 @@ header {
 
 .no-login-text {
   text-align: center;
+}
+
+// Drawer.tsx------------------------------------------
+.MuiBackdrop-root {
+  background-color: unset;
 }

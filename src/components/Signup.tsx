@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { InputLabel, Button, TextField } from "@mui/material";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import MuiLink from "@mui/material/Link"
 
@@ -19,7 +18,7 @@ export default function Signup() {
     e.preventDefault()
     try {
       await createUserWithEmailAndPassword(auth, email, password)
-      await sendEmailVerification(auth.currentUser)
+      auth.currentUser && await sendEmailVerification(auth.currentUser)
       setFlash({open: true, mess: "確認メールが送信されました", type: "success"})
     } catch (e) {
       setFlash({open: true, mess: "エラーが発生しました。", type: "error"})
@@ -55,9 +54,11 @@ export default function Signup() {
         </Button>
       </form>
 
-      <Link href="/login">
-        <MuiLink>ログインする</MuiLink>
-      </Link>
+      <div className="to-login">
+        <Link href="/login">
+          <MuiLink>ログインする</MuiLink>
+        </Link>
+      </div>
     </div>
   )
 }
