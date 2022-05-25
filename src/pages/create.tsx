@@ -32,7 +32,7 @@ export default function Create() {
               size="small"
             />
 
-            <InputLabel>キーワード、特徴</InputLabel>
+            <InputLabel>サービスの特徴、キーワード</InputLabel>
             <TextField 
               type="text"
               name="key-word"

@@ -2,7 +2,7 @@
 
 $main-color: green;
 $base-color: #4caf50;
-$bg-color: #e8f5e9;
+$bg-color: #eaf1eb;
 
 html,
 body {
@@ -66,6 +66,10 @@ header {
   align-items: center;
   padding: 0 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  p {
+    font-size: 13px;
+  }
 }
 
 .header-left {
@@ -85,6 +89,17 @@ header {
   }
   button {
     color: white;
+  }
+}
+
+.MuiDrawer-paper {
+  background-color: #e8f5e9;
+}
+
+// 650以下
+@media screen and (max-width: 650px) {
+  .greeting {
+    display: none;
   }
 }
 

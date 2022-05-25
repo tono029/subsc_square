@@ -7,9 +7,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListIcon from '@mui/icons-material/List';
+import Divider from '@mui/material/Divider';
 import { IconButton } from '@mui/material';
 import { useRouter } from 'next/router';
-
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import AddIcon from '@mui/icons-material/Add';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 
 export default function TemporaryDrawer() {
   const [drawerOpen, setDrawerOpen] = React.useState(false)
@@ -21,40 +24,46 @@ export default function TemporaryDrawer() {
   }
 
   const list = (
-    <List>
-      
-      <ListItem disablePadding>
-        <ListItemButton onClick={() => handleListClick("/posts")}>
-          <ListItemIcon>
-            
-          </ListItemIcon>
-          <ListItemText>投稿一覧</ListItemText>
-        </ListItemButton>
-      </ListItem>
-      
-      <ListItem disablePadding>
-        <ListItemButton onClick={() => handleListClick("/create")}>
-          <ListItemIcon>
-            
-          </ListItemIcon>
-          <ListItemText>投稿する</ListItemText>
-        </ListItemButton>
-      </ListItem>
-      
-      <ListItem disablePadding>
-        <ListItemButton onClick={() => handleListClick("/settings")}>
-          <ListItemIcon>
-            
-          </ListItemIcon>
-          <ListItemText>ユーザー設定</ListItemText>
-        </ListItemButton>
-      </ListItem>
+    <>
+      <List>
+        
+        <ListItem disablePadding>
+          <ListItemButton onClick={() => handleListClick("/posts")}>
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText>投稿一覧</ListItemText>
+          </ListItemButton>
+        </ListItem>
+        
+        <ListItem disablePadding>
+          <ListItemButton onClick={() => handleListClick("/create")}>
+            <ListItemIcon>
+              <AddIcon />
+            </ListItemIcon>
+            <ListItemText>投稿する</ListItemText>
+          </ListItemButton>
+        </ListItem>
 
-    </List>
+      </List>
+  
+      <Divider variant='middle' />
+  
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton onClick={() => handleListClick("/settings")}>
+            <ListItemIcon>
+              <ManageAccountsIcon />
+            </ListItemIcon>
+            <ListItemText>ユーザー設定</ListItemText>
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </>
   )
     
   return (
-    <>
+    <div className='drawer'>
       <IconButton
         onClick={() => setDrawerOpen(true)}
       >
@@ -74,6 +83,6 @@ export default function TemporaryDrawer() {
           {list}
         </Box>
       </Drawer>
-    </>
+    </div>
   );
 }

@@ -1,8 +1,6 @@
 import { useRouter } from "next/router"
-import { Button } from "@mui/material"
 import React, { useContext } from "react"
 import { AuthContext } from "src/firebase/AuthProvider"
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import TemporaryDrawer from "./Drawer";
 
 export default function Header() {
@@ -11,6 +9,19 @@ export default function Header() {
 
   console.log(currentUser)
 
+  const user = currentUser && currentUser.email && currentUser.email.split("@")[0]
+
+  const greeting = () => {
+    const now = new Date().getHours()
+    if (now >= 6 && now < 12) {
+      return "おはようございます"
+    } else if (now >= 12 && now < 18) {
+      return "こんにちは"
+    } else {
+      return "こんばんは"
+    }
+  }
+
   return (
     <header>
       <div className="header-left">
@@ -18,48 +29,16 @@ export default function Header() {
       </div>
 
       <div className="header-right">
+        
         {
-          currentUser ?
+          currentUser &&
 
-          <div className="nav-item">
-            <Button
-              variant="contained"
-              size="small"
-              onClick={() => router.push("/settings")}
-            >
-              設定
-            </Button>
-          
+          <div className="greeting">
+            <p>{greeting()}, {user}さん</p>
           </div>
-
-          :
-
-          <></>
-
         }
 
-        <div className="nav-item">
-          <Button
-            variant="contained"
-            size="small"
-            onClick={() => router.push("/posts")}
-          >
-            投稿一覧
-          </Button>
-        </div>
-
-        <div className="nav-item">
-          <Button
-            variant="contained"
-            size="small"
-            onClick={() => router.push("/create")}
-          >
-            投稿する
-          </Button>
-        </div>
-
         <TemporaryDrawer />
-
 
       </div>
     </header>
