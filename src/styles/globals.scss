@@ -84,12 +84,13 @@ header {
 .header-right {
   display: flex;
   align-items: center;
-  div {
-    margin-left: 10px;
-  }
   button {
     color: white;
   }
+}
+
+.drawer {
+  margin-left: 10px;
 }
 
 .MuiDrawer-paper {
@@ -108,6 +109,15 @@ header {
   h2 {
     text-align: center;
   }
+}
+
+.scene {
+  width: auto;
+  height: 70vh;
+}
+
+.canvas {
+  background-color: black;
 }
 
 

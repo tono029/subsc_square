@@ -46,6 +46,12 @@ export default function Create() {
               name="main-text"
               multiline
               rows={6}
+              placeholder="サービスを利用してみた感想、こんな人におすすめなど..."
+            />
+
+            <input
+              type="hidden" 
+              value={currentUser.email}
             />
 
             <Button

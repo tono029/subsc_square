@@ -13,8 +13,10 @@ import { useRouter } from 'next/router';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import AddIcon from '@mui/icons-material/Add';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import { AuthContext } from 'src/firebase/AuthProvider';
 
 export default function TemporaryDrawer() {
+  const {currentUser}  = React.useContext(AuthContext)
   const [drawerOpen, setDrawerOpen] = React.useState(false)
   const router = useRouter()
 
@@ -50,14 +52,19 @@ export default function TemporaryDrawer() {
       <Divider variant='middle' />
   
       <List>
-        <ListItem disablePadding>
-          <ListItemButton onClick={() => handleListClick("/settings")}>
-            <ListItemIcon>
-              <ManageAccountsIcon />
-            </ListItemIcon>
-            <ListItemText>ユーザー設定</ListItemText>
-          </ListItemButton>
-        </ListItem>
+        {
+          currentUser &&
+
+          <ListItem disablePadding>
+            <ListItemButton onClick={() => handleListClick("/settings")}>
+              <ListItemIcon>
+                <ManageAccountsIcon />
+              </ListItemIcon>
+              <ListItemText>ユーザー設定</ListItemText>
+            </ListItemButton>
+          </ListItem>
+        }
+        
       </List>
     </>
   )
